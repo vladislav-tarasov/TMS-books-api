@@ -9,6 +9,10 @@ const { books, authors } = require("./stubs");
 app.use(express.json());
 app.use(cors());
 
+app.get("/api/health-check", (req, res) => {
+  res.status(200).send({ success: true });
+});
+
 app.get("/api/books", (req, res) => {
   res.status(200).send(shuffle(books));
 });
